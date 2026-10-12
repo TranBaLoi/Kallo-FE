@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(python -c 'from pathlib import Path; p=Path\\(r'\\\\''C:\\\\Users\\\\Loi\\\\Desktop\\\\DoAn\\\\FE\\\\assets'\\\\''\\); *)",
+      "Bash(python -I -c 'from pathlib import Path; import re *)",
+      "Bash(npm install *)"
+    ]
+  }
+}
