@@ -9,31 +9,37 @@ import {
   useWindowDimensions,
   View,
 } from "react-native";
+import Svg, { Defs, LinearGradient, Stop, Text as SvgText } from "react-native-svg";
+import { COLORS } from "../constants";
 import {
   KalloButton,
   KalloLogo,
+  ExpertMascot,
   KalloMascot,
   PaginationDots,
+  ThinkingMascot,
   ScreenBackground,
 } from "../components";
-import { COLORS } from "../constants";
 
 type OnboardingScreenProps = { onComplete: () => void };
 
-type OnboardingStep = { title: string; highlight?: string; description: string };
+type OnboardingStep = { title: string; titleLines?: string[]; highlight?: string; description: string };
 
 const ONBOARDING_STEPS: OnboardingStep[] = [
   {
     title: "Ứng dụng dinh dưỡng top #1",
+    titleLines: ["Ứng dụng dinh dưỡng", "top #1"],
     highlight: "App Store",
     description: "Ứng dụng cá nhân hoá món ăn, thói quen và lối sống dành cho người Việt.",
   },
   {
-    title: "Kế hoạch calo & dinh dưỡng thông minh",
-    description: "Tính toán chuẩn xác theo thể trạng và mục tiêu sức khỏe của bạn.",
+    title: "Tính calo và dinh dưỡng món Việt cực chuẩn",
+    titleLines: ["Tính calo và dinh dưỡng", "món Việt cực chuẩn"],
+    description: "Theo đúng cách nấu & khẩu phần bạn chọn",
   },
   {
     title: "Đồng hành cùng AI mỗi bữa ăn",
+    titleLines: ["Đồng hành cùng AI", "mỗi bữa ăn"],
     description: "Gợi ý thực đơn, nhắc nhở và tối ưu thói quen sống lành mạnh mỗi ngày.",
   },
 ];
@@ -72,18 +78,36 @@ export default function OnboardingScreen({ onComplete }: OnboardingScreenProps) 
           onMomentumScrollEnd={updateActiveIndex}
           pagingEnabled
           ref={slidesRef}
-          renderItem={({ item }) => (
+          renderItem={({ item, index }) => {
+            const titleLines = item.titleLines ?? [item.title];
+
+            return (
             <View style={[styles.slide, { width }]}>
               <View style={styles.mascotArea}>
-                <KalloMascot />
+                {index === 1 ? <ThinkingMascot /> : index === 2 ? <ExpertMascot /> : <KalloMascot />}
               </View>
               <View style={styles.content}>
-                <Text style={styles.title}>{item.title}</Text>
+                <Svg height={titleLines.length === 2 ? 72 : 40} viewBox={`0 0 360 ${titleLines.length === 2 ? 72 : 40}`} width="100%">
+
+                  <Defs>
+                    <LinearGradient id={`titleGradient-${index}`} x1="0%" x2="100%" y1="0%" y2="100%">
+                      <Stop offset="0%" stopColor="#166534" />
+                      <Stop offset="55%" stopColor="#059669" />
+                      <Stop offset="100%" stopColor="#34D399" />
+                    </LinearGradient>
+                  </Defs>
+                  {titleLines.map((line, lineIndex) => (
+                    <SvgText key={line} fill={`url(#titleGradient-${index})`} fontFamily="System" fontSize={25} fontWeight="800" textAnchor="middle" x="180" y={31 + lineIndex * 32}>
+                      {line}
+                    </SvgText>
+                  ))}
+                </Svg>
                 {item.highlight && <Text style={styles.highlight}>{item.highlight}</Text>}
                 <Text style={styles.description}>{item.description}</Text>
               </View>
             </View>
-          )}
+            );
+          }}
           showsHorizontalScrollIndicator={false}
           style={styles.slides}
         />
@@ -99,22 +123,15 @@ export default function OnboardingScreen({ onComplete }: OnboardingScreenProps) 
 
 const styles = StyleSheet.create({
   safeArea: { flex: 1 },
-  header: { alignItems: "center", paddingBottom: 4, paddingTop: 12 },
+  header: { alignItems: "center", paddingTop: 10 },
   slides: { flex: 1 },
   slide: { alignItems: "center", flex: 1, justifyContent: "center", paddingHorizontal: 24 },
-  mascotArea: { alignItems: "center", flex: 1, justifyContent: "flex-end", paddingBottom: 18 },
-  content: { alignItems: "center", flex: 1, justifyContent: "flex-start", maxWidth: 360 },
-  title: {
-    color: COLORS.slate900,
-    fontSize: 27,
-    fontWeight: "800",
-    lineHeight: 34,
-    textAlign: "center",
-  },
+  mascotArea: { alignItems: "center", height: 380, justifyContent: "center", width: "100%" },
+  content: { alignItems: "center", flexGrow: 0, justifyContent: "flex-start", maxWidth: 360, width: "100%" },
   highlight: {
-    color: "#059669",
+    color: "#10B981",
     fontSize: 27,
-    fontWeight: "800",
+    fontWeight: "900",
     lineHeight: 34,
     textAlign: "center",
   },
@@ -127,5 +144,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 6,
     textAlign: "center",
   },
-  footer: { gap: 28, paddingBottom: 20, paddingHorizontal: 24, paddingTop: 14 },
+  footer: { gap: 24, paddingBottom: 20, paddingHorizontal: 24, paddingTop: 8 },
 });

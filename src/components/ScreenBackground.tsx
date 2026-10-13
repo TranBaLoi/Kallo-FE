@@ -17,7 +17,7 @@ export default function ScreenBackground({ children }: ScreenBackgroundProps) {
 
 const styles = StyleSheet.create({
   container: { flex: 1, overflow: "hidden" },
-  blob: { borderRadius: 999, height: 240, position: "absolute", width: 240 },
-  blobTopLeft: { backgroundColor: "rgba(74, 222, 128, 0.13)", left: -100, top: -100 },
-  blobTopRight: { backgroundColor: "rgba(52, 211, 153, 0.12)", right: -110, top: 20 },
+  blob: { borderRadius: 999, height: 280, position: "absolute", width: 280 },
+  blobTopLeft: { backgroundColor: "rgba(134, 239, 172, 0.24)", left: -130, top: -120 },
+  blobTopRight: { backgroundColor: "rgba(16, 185, 129, 0.14)", right: -130, top: 80 },
 });

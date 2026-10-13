@@ -1,15 +1,10 @@
 {
   "expo": {
-    "name": "HealthAI",
+    "name": "Kallo",
     "slug": "fe-health-ai",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
-    "splash": {
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
     "ios": {
       "supportsTablet": true
     },
@@ -18,8 +13,6 @@
         "backgroundColor": "#ffffff"
       }
     },
-    "plugins": [
-      "expo-asset"
-    ]
+    "plugins": ["expo-asset"]
   }
 }

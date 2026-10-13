@@ -25,7 +25,7 @@ export default function PaginationDots({ total, activeIndex }: PaginationDotsPro
 }
 
 const styles = StyleSheet.create({
-  row: { alignItems: "center", flexDirection: "row", gap: 10 },
+  row: { alignItems: "center", alignSelf: "center", flexDirection: "row", gap: 10, justifyContent: "center" },
   active: { borderRadius: RADIUS.full, height: 8, width: 28 },
   inactive: { backgroundColor: COLORS.slate300, borderRadius: RADIUS.full, height: 8, width: 8 },
 });

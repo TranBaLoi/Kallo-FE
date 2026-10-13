@@ -15,7 +15,7 @@ export const COLORS = {
 } as const;
 
 export const GRADIENTS = {
-  background: ["#ECFDF5", "#F0FDF4", "#FFFFFF"] as const,
+  background: ["#D1FAE5", "#ECFDF5", "#F8FFFB"] as const,
   primaryButton: ["#16A34A", "#22C55E", "#34D399"] as const,
   activeDot: ["#22C55E", "#10B981", "#34D399"] as const,
   catSkin: ["#4ADE80", "#22C55E", "#15803D"] as const,
