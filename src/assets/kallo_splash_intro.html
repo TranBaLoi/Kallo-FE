@@ -1,0 +1,409 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width,initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #0a1116;
+    }
+  </style>
+</head>
+<body>
+<!-- STITCH_SVG_START:ANIMATION_SPLASH class="fixed inset-0 w-full h-full" --><div class="fixed inset-0 w-full h-full" id="animated-svg-ANIMATION_SPLASH" style="display:block;"><svg fill="none" height="100%" viewBox="0 0 600 600" width="100%" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <!-- Background Radial Glows (Matching #0a1116 Kallo Brand Theme) -->
+  <radialGradient cx="50%" cy="42%" id="bgGlowSplash" r="52%">
+    <stop offset="0%" stop-color="#22c55e" stop-opacity="0.32"></stop>
+    <stop offset="55%" stop-color="#16a34a" stop-opacity="0.10"></stop>
+    <stop offset="100%" stop-color="#0a1116" stop-opacity="0"></stop>
+  </radialGradient>
+  <radialGradient cx="50%" cy="50%" id="portalGlow" r="50%">
+    <stop offset="0%" stop-color="#4ade80" stop-opacity="0.45"></stop>
+    <stop offset="70%" stop-color="#22c55e" stop-opacity="0.12"></stop>
+    <stop offset="100%" stop-color="#0a1116" stop-opacity="0"></stop>
+  </radialGradient>
+  <radialGradient cx="50%" cy="50%" id="shadowSplash" r="50%">
+    <stop offset="0%" stop-color="#052e16" stop-opacity="0.85"></stop>
+    <stop offset="70%" stop-color="#021f0e" stop-opacity="0.35"></stop>
+    <stop offset="100%" stop-color="#0a1116" stop-opacity="0"></stop>
+  </radialGradient>
+
+  <!-- Kallo Mascot Gradients -->
+  <linearGradient id="bodyGradSplash" x1="0%" x2="0%" y1="0%" y2="100%">
+    <stop offset="0%" stop-color="#4ade80"></stop>
+    <stop offset="50%" stop-color="#22c55e"></stop>
+    <stop offset="100%" stop-color="#16a34a"></stop>
+  </linearGradient>
+  <linearGradient id="headGradSplash" x1="0%" x2="0%" y1="0%" y2="100%">
+    <stop offset="0%" stop-color="#86efac"></stop>
+    <stop offset="35%" stop-color="#4ade80"></stop>
+    <stop offset="100%" stop-color="#22c55e"></stop>
+  </linearGradient>
+  <linearGradient id="earInnerSplash" x1="0%" x2="0%" y1="0%" y2="100%">
+    <stop offset="0%" stop-color="#bbf7d0"></stop>
+    <stop offset="100%" stop-color="#4ade80"></stop>
+  </linearGradient>
+
+  <!-- Kallo Logo Wordmark Gradients (Exact from User's Logo SVG) -->
+  <linearGradient id="kalloTextGrad" x1="0%" x2="0%" y1="0%" y2="100%">
+    <stop offset="0%" stop-color="#ffffff"></stop>
+    <stop offset="70%" stop-color="#f0fdf4"></stop>
+    <stop offset="100%" stop-color="#dcfce7"></stop>
+  </linearGradient>
+  <linearGradient id="sproutGradClean" x1="0%" x2="100%" y1="0%" y2="100%">
+    <stop offset="0%" stop-color="#86efac"></stop>
+    <stop offset="45%" stop-color="#4ade80"></stop>
+    <stop offset="100%" stop-color="#22c55e"></stop>
+  </linearGradient>
+  <linearGradient id="leafGradDarkClean" x1="0%" x2="100%" y1="0%" y2="100%">
+    <stop offset="0%" stop-color="#4ade80"></stop>
+    <stop offset="100%" stop-color="#16a34a"></stop>
+  </linearGradient>
+  <linearGradient id="pulseBarGrad" x1="0%" x2="100%" y1="0%" y2="0%">
+    <stop offset="0%" stop-color="#16a34a" stop-opacity="0.3"></stop>
+    <stop offset="50%" stop-color="#4ade80" stop-opacity="1"></stop>
+    <stop offset="100%" stop-color="#86efac" stop-opacity="1"></stop>
+  </linearGradient>
+
+  <!-- Filters -->
+  <filter height="160%" id="neonSproutGlowClean" width="160%" x="-30%" y="-30%">
+    <feGaussianBlur result="blur" stdDeviation="5"></feGaussianBlur>
+    <feComposite in="SourceGraphic" in2="blur" operator="over"></feComposite>
+  </filter>
+  <filter height="130%" id="softGlowSplash" width="130%" x="-15%" y="-15%">
+    <feGaussianBlur result="blur" stdDeviation="4"></feGaussianBlur>
+    <feComposite in="SourceGraphic" in2="blur" operator="over"></feComposite>
+  </filter>
+  <filter height="130%" id="textDropShadow" width="130%" x="-15%" y="-15%">
+    <feDropShadow dx="0" dy="5" flood-color="#052e16" flood-opacity="0.75" stdDeviation="8"></feDropShadow>
+  </filter>
+
+  <style>
+    /* Splash Entrance + Continuous Idle Animations */
+    @keyframes mascotPopIn {
+      0% { transform: scale(0) translateY(40px); opacity: 0; }
+      65% { transform: scale(1.06) translateY(-6px); opacity: 1; }
+      82% { transform: scale(0.97) translateY(2px); opacity: 1; }
+      100% { transform: scale(1) translateY(0px); opacity: 1; }
+    }
+    @keyframes mascotFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-9px); }
+    }
+    @keyframes waveHello {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-18deg); }
+      50% { transform: rotate(10deg); }
+      75% { transform: rotate(-16deg); }
+    }
+    @keyframes eyeWink {
+      0%, 42%, 56%, 100% { transform: scaleY(1); }
+      48%, 50% { transform: scaleY(0.12); }
+    }
+    @keyframes tailCheer {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(12deg); }
+    }
+    @keyframes sproutBloom {
+      0%, 100% { transform: rotate(-5deg) scale(1); }
+      50% { transform: rotate(6deg) scale(1.06); }
+    }
+    @keyframes earLeftWiggle {
+      0%, 86%, 100% { transform: rotate(0deg); }
+      92% { transform: rotate(-5deg); }
+      96% { transform: rotate(3deg); }
+    }
+    @keyframes earRightWiggle {
+      0%, 84%, 100% { transform: rotate(0deg); }
+      90% { transform: rotate(5deg); }
+      95% { transform: rotate(-3deg); }
+    }
+    @keyframes ringExpand {
+      0% { transform: scale(0.78); opacity: 0.75; }
+      100% { transform: scale(1.28); opacity: 0; }
+    }
+    @keyframes letterPopUp {
+      0% { opacity: 0; transform: translateY(24px) scale(0.85); }
+      70% { opacity: 1; transform: translateY(-4px) scale(1.03); }
+      100% { opacity: 1; transform: translateY(0px) scale(1); }
+    }
+    @keyframes dotPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.25); }
+    }
+    @keyframes sparklePop {
+      0%, 100% { opacity: 0.25; transform: scale(0.6) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1.2) rotate(45deg); }
+    }
+    @keyframes loadingFill {
+      0% { width: 16px; opacity: 0.7; }
+      75% { width: 168px; opacity: 1; }
+      100% { width: 168px; opacity: 1; }
+    }
+
+    #animated-svg-ANIMATION_SPLASH .splash-mascot-entry {
+      transform-origin: 300px 250px;
+      animation: mascotPopIn 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+    #animated-svg-ANIMATION_SPLASH .splash-mascot-bob {
+      transform-origin: 300px 245px;
+      animation: mascotFloat 2.8s ease-in-out infinite;
+    }
+    #animated-svg-ANIMATION_SPLASH .waving-arm {
+      transform-origin: 348px 255px;
+      animation: waveHello 1.6s ease-in-out infinite;
+    }
+    #animated-svg-ANIMATION_SPLASH .wink-eye {
+      transform-origin: 342px 172px;
+      animation: eyeWink 3.2s ease-in-out infinite;
+    }
+    #animated-svg-ANIMATION_SPLASH .tail-wag {
+      transform-origin: 352px 318px;
+      animation: tailCheer 2s ease-in-out infinite;
+    }
+    #animated-svg-ANIMATION_SPLASH .sprout-head {
+      transform-origin: 300px 118px;
+      animation: sproutBloom 2.5s ease-in-out infinite;
+    }
+    #animated-svg-ANIMATION_SPLASH .ear-l {
+      transform-origin: 245px 140px;
+      animation: earLeftWiggle 4.2s ease-in-out infinite;
+    }
+    #animated-svg-ANIMATION_SPLASH .ear-r {
+      transform-origin: 355px 140px;
+      animation: earRightWiggle 3.8s ease-in-out infinite;
+    }
+    #animated-svg-ANIMATION_SPLASH .energy-ring-1 {
+      transform-origin: 300px 235px;
+      animation: ringExpand 2.6s ease-out infinite;
+    }
+    #animated-svg-ANIMATION_SPLASH .energy-ring-2 {
+      transform-origin: 300px 235px;
+      animation: ringExpand 2.6s ease-out infinite 1.3s;
+    }
+    #animated-svg-ANIMATION_SPLASH .anim-k {
+      transform-origin: 150px 160px;
+      animation: letterPopUp 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 0.25s both;
+    }
+    #animated-svg-ANIMATION_SPLASH .anim-a {
+      transform-origin: 280px 175px;
+      animation: letterPopUp 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 0.35s both;
+    }
+    #animated-svg-ANIMATION_SPLASH .anim-l1 {
+      transform-origin: 385px 150px;
+      animation: letterPopUp 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 0.45s both;
+    }
+    #animated-svg-ANIMATION_SPLASH .anim-l2 {
+      transform-origin: 442px 150px;
+      animation: letterPopUp 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 0.55s both;
+    }
+    #animated-svg-ANIMATION_SPLASH .anim-o {
+      transform-origin: 555px 150px;
+      animation: letterPopUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.65s both;
+    }
+    #animated-svg-ANIMATION_SPLASH .energy-dot-anim {
+      transform-origin: 638px 168px;
+      animation: dotPulse 1.8s ease-in-out infinite;
+    }
+    #animated-svg-ANIMATION_SPLASH .sp-1 {
+      transform-origin: 145px 145px;
+      animation: sparklePop 2.2s ease-in-out infinite;
+    }
+    #animated-svg-ANIMATION_SPLASH .sp-2 {
+      transform-origin: 465px 132px;
+      animation: sparklePop 2.5s ease-in-out infinite 0.6s;
+    }
+    #animated-svg-ANIMATION_SPLASH .sp-3 {
+      transform-origin: 135px 305px;
+      animation: sparklePop 2.8s ease-in-out infinite 1.1s;
+    }
+    #animated-svg-ANIMATION_SPLASH .loader-progress {
+      animation: loadingFill 2.4s cubic-bezier(0.22, 1, 0.36, 1) 1 forwards;
+    }
+  </style>
+</defs>
+
+<!-- Dark Luxury Brand Canvas (#0a1116) -->
+<rect fill="#0a1116" height="600" width="600"></rect>
+<circle cx="300" cy="255" fill="url(#bgGlowSplash)" r="280"></circle>
+
+<!-- Expanding Welcome Energy Rings Behind Kallo -->
+<circle class="energy-ring-1" cx="300" cy="235" fill="none" r="148" stroke="#4ade80" stroke-dasharray="10 8" stroke-width="2"></circle>
+<circle class="energy-ring-2" cx="300" cy="235" fill="none" r="148" stroke="#22c55e" stroke-width="1.5"></circle>
+<circle cx="300" cy="235" fill="url(#portalGlow)" r="158"></circle>
+
+<!-- Twinkling Welcome Sparkles -->
+<g fill="#4ade80" filter="url(#softGlowSplash)">
+  <path class="sp-1" d="M 145 130 Q 145 145 130 145 Q 145 145 145 160 Q 145 145 160 145 Q 145 145 145 130 Z"></path>
+  <path class="sp-2" d="M 465 118 Q 465 132 451 132 Q 465 132 465 146 Q 465 132 479 132 Q 465 132 465 118 Z"></path>
+  <path class="sp-3" d="M 135 295 Q 135 305 125 305 Q 135 305 135 315 Q 135 305 145 305 Q 135 305 135 295 Z"></path>
+  <circle cx="472" cy="285" fill="#86efac" r="4"></circle>
+  <circle cx="178" cy="95" fill="#86efac" r="3"></circle>
+  <circle cx="425" cy="88" fill="#fef08a" r="3.5"></circle>
+</g>
+
+<!-- Ground Shadow under Floating Kallo -->
+<ellipse cx="300" cy="368" fill="url(#shadowSplash)" rx="105" ry="18"></ellipse>
+
+<!-- ================================================================= -->
+<!-- PART 1: KALLO MASCOT WELCOMING / WAVING HELLO (TOP CENTER)        -->
+<!-- ================================================================= -->
+<g class="splash-mascot-entry">
+  <g class="splash-mascot-bob">
+    <!-- Wagging Tail (Lower right) -->
+    <path class="tail-wag" d="M 350 322 C 384 332 414 322 422 298 C 428 278 414 268 402 275 C 392 281 392 296 378 306 C 368 312 355 315 346 316"
+          fill="#16a34a" stroke="#15803d" stroke-linecap="round" stroke-width="3"></path>
+
+    <!-- Cute Paws / Feet -->
+    <ellipse cx="268" cy="342" fill="#16a34a" rx="24" ry="14" transform="rotate(-6 268 342)"></ellipse>
+    <ellipse cx="268" cy="340" fill="#22c55e" rx="18" ry="9" transform="rotate(-6 268 340)"></ellipse>
+    <ellipse cx="332" cy="342" fill="#16a34a" rx="24" ry="14" transform="rotate(6 332 342)"></ellipse>
+    <ellipse cx="332" cy="340" fill="#22c55e" rx="18" ry="9" transform="rotate(6 332 340)"></ellipse>
+
+    <!-- Chubby Body Torso -->
+    <path d="M 244 270 C 244 330 262 344 300 344 C 338 344 356 330 356 270 C 356 244 338 228 300 228 C 262 228 244 244 244 270 Z"
+          fill="url(#bodyGradSplash)" stroke="#16a34a" stroke-width="3.8"></path>
+
+    <!-- Glowing Heart / Pulse Badge on Kallo's Chest -->
+    <g filter="url(#softGlowSplash)">
+      <path d="M 300 304 C 300 304 278 288 278 274 C 278 265 285 260 292 260 C 296 260 300 264 300 268 C 300 264 304 260 308 260 C 315 260 322 265 322 274 C 322 288 300 304 300 304 Z"
+            fill="#86efac" opacity="0.38"></path>
+      <polyline fill="none" points="282,279 292,279 296,270 300,288 305,274 309,279 318,279"
+                stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
+    </g>
+
+    <!-- Left Arm (Resting Cheerfully) -->
+    <path d="M 248 258 C 226 270 224 298 238 314 C 245 322 256 314 254 300 C 250 286 254 272 262 264 Z"
+          fill="#22c55e" stroke="#16a34a" stroke-width="3"></path>
+
+    <!-- Pointy Cat Ears -->
+    <g class="ear-l">
+      <path d="M 222 155 L 235 80 C 244 72 260 88 272 126 Z" fill="#22c55e" stroke="#15803d" stroke-linejoin="round" stroke-width="3.8"></path>
+      <path d="M 233 146 L 242 92 C 249 88 258 98 264 126 Z" fill="url(#earInnerSplash)"></path>
+    </g>
+    <g class="ear-r">
+      <path d="M 378 155 L 365 80 C 356 72 340 88 328 126 Z" fill="#22c55e" stroke="#15803d" stroke-linejoin="round" stroke-width="3.8"></path>
+      <path d="M 367 146 L 358 92 C 351 88 342 98 336 126 Z" fill="url(#earInnerSplash)"></path>
+    </g>
+
+    <!-- Signature Nutrition Sprout on Top of Head -->
+    <g class="sprout-head" filter="url(#neonSproutGlowClean)">
+      <path d="M 300 118 Q 300 92 296 78" fill="none" stroke="#22c55e" stroke-linecap="round" stroke-width="4.2"></path>
+      <path d="M 296 82 C 274 74 272 95 293 97 C 298 97 296 86 296 82 Z" fill="url(#sproutGradClean)" stroke="#16a34a" stroke-width="2"></path>
+      <path d="M 296 78 C 322 65 326 90 302 90 C 297 90 296 82 296 78 Z" fill="#4ade80" stroke="#16a34a" stroke-width="2"></path>
+    </g>
+
+    <!-- Chubby Round Head -->
+    <ellipse cx="300" cy="184" fill="url(#headGradSplash)" rx="86" ry="75" stroke="#16a34a" stroke-width="4"></ellipse>
+
+    <!-- White Muzzle Area -->
+    <path d="M 252 202 C 252 180 274 173 300 173 C 326 173 348 180 348 202 C 348 224 328 234 300 234 C 272 234 252 224 252 202 Z"
+          fill="#ffffff" opacity="0.96"></path>
+
+    <!-- Big Sparkling Welcoming Eyes -->
+    <g>
+      <circle cx="258" cy="172" fill="#0f172a" r="15"></circle>
+      <circle cx="253" cy="166" fill="#ffffff" r="5.5"></circle>
+      <circle cx="264" cy="177" fill="#86efac" r="2.8"></circle>
+    </g>
+    <g class="wink-eye">
+      <circle cx="342" cy="172" fill="#0f172a" r="15"></circle>
+      <circle cx="337" cy="166" fill="#ffffff" r="5.5"></circle>
+      <circle cx="348" cy="177" fill="#86efac" r="2.8"></circle>
+    </g>
+
+    <!-- Cute Rosy Cheeks on Muzzle Edge -->
+    <ellipse cx="256" cy="204" fill="#fb7185" opacity="0.45" rx="10" ry="5.5"></ellipse>
+    <ellipse cx="344" cy="204" fill="#fb7185" opacity="0.45" rx="10" ry="5.5"></ellipse>
+
+    <!-- Cute Whiskers -->
+    <path d="M 248 198 L 210 196" stroke="#0f172a" stroke-linecap="round" stroke-width="2.8"></path>
+    <path d="M 250 210 L 216 216" stroke="#0f172a" stroke-linecap="round" stroke-width="2.8"></path>
+    <path d="M 352 198 L 390 196" stroke="#0f172a" stroke-linecap="round" stroke-width="2.8"></path>
+    <path d="M 350 210 L 384 216" stroke="#0f172a" stroke-linecap="round" stroke-width="2.8"></path>
+
+    <!-- Cute Nose & Cheerful Welcoming Cat Smile -->
+    <polygon fill="#0f172a" points="296,191 304,191 300,196"></polygon>
+    <path d="M 288 200 Q 300 216 312 200 Z" fill="#f43f5e" stroke="#0f172a" stroke-linejoin="round" stroke-width="2.4"></path>
+    <path d="M 285 199 C 290 203 300 203 300 198 C 300 203 310 203 315 199" fill="none" stroke="#0f172a" stroke-linecap="round" stroke-width="2.5"></path>
+
+    <!-- Right Arm Raised Outward Waving Hello Clearly ("Xin chào!") -->
+    <g class="waving-arm">
+      <path d="M 346 262 C 378 256 418 232 426 202 C 430 186 412 178 400 192 C 390 205 372 228 344 242 Z"
+            fill="url(#bodyGradSplash)" stroke="#15803d" stroke-linejoin="round" stroke-width="3.2"></path>
+      <!-- Cute Paw Pad on Waving Hand -->
+      <ellipse cx="412" cy="196" fill="#bbf7d0" rx="7.5" ry="5.5" transform="rotate(-30 412 196)"></ellipse>
+      <!-- Waving Motion Arc Lines -->
+      <path d="M 436 182 Q 448 195 440 212" fill="none" stroke="#86efac" stroke-linecap="round" stroke-width="2.8"></path>
+      <path d="M 446 176 Q 460 194 450 216" fill="none" stroke="#4ade80" stroke-linecap="round" stroke-opacity="0.7" stroke-width="2.2"></path>
+    </g>
+  </g>
+</g>
+
+<!-- ================================================================= -->
+<!-- PART 2: EXACT KALLO WORDMARK LOGO BELOW MASCOT                    -->
+<!-- ================================================================= -->
+<g filter="url(#textDropShadow)" transform="translate(56, 355) scale(0.66)">
+  <!-- 1. CHỮ "K" -->
+  <g class="anim-k" id="letter-K">
+    <rect fill="url(#kalloTextGrad)" height="150" rx="17" width="34" x="95" y="75"></rect>
+    <path d="M 120 160 L 182 88 C 188 81 198 80 204 86 C 211 93 210 102 203 109 L 155 162 Z" fill="url(#kalloTextGrad)"></path>
+    <path d="M 195 76 L 212 68 L 206 88 Z" fill="url(#sproutGradClean)"></path>
+    <path d="M 138 152 L 195 215 C 202 222 202 232 195 238 C 188 244 178 243 171 236 L 118 178 Z" fill="url(#kalloTextGrad)"></path>
+  </g>
+
+  <!-- 2. CHỮ "a" -->
+  <g class="anim-a" id="letter-a">
+    <path d="M 280 120 C 242 120 212 145 212 175 C 212 205 242 230 280 230 C 298 230 314 223 325 212 L 325 218 C 325 224 330 228 336 228 C 342 228 347 224 347 218 L 347 132 C 347 125 342 120 336 120 C 330 120 325 125 325 131 L 325 138 C 314 127 298 120 280 120 Z M 284 148 C 307 148 325 161 325 175 C 325 189 307 202 284 202 C 261 202 244 189 244 175 C 244 161 261 148 284 148 Z" fill="url(#kalloTextGrad)"></path>
+  </g>
+
+  <!-- 3. CHỮ "l" THỨ NHẤT -->
+  <g class="anim-l1" id="letter-l-1">
+    <path d="M 385 68 C 395 68 404 76 404 86 L 404 212 C 404 222 395 230 385 230 C 375 230 366 222 366 212 L 366 86 C 366 76 375 68 385 68 Z" fill="url(#kalloTextGrad)"></path>
+    <ellipse cx="385" cy="92" fill="#ffffff" opacity="0.6" rx="5" ry="12"></ellipse>
+  </g>
+
+  <!-- 4. CHỮ "l" THỨ HAI -->
+  <g class="anim-l2" id="letter-l-2">
+    <path d="M 442 68 C 452 68 461 76 461 86 L 461 212 C 461 222 452 230 442 230 C 432 230 423 222 423 212 L 423 86 C 423 76 432 68 442 68 Z" fill="url(#kalloTextGrad)"></path>
+    <ellipse cx="442" cy="92" fill="#ffffff" opacity="0.6" rx="5" ry="12"></ellipse>
+  </g>
+
+  <!-- 5. CHỮ "o" VỚI MẦM CÂY DINH DƯỠNG & CHẤM NĂNG LƯỢNG NEON -->
+  <g class="anim-o" id="letter-o-and-sprout">
+    <path d="M 548 120 C 505 120 474 145 474 175 C 474 205 505 230 548 230 C 591 230 622 205 622 175 C 622 145 591 120 548 120 Z M 548 148 C 574 148 592 160 592 175 C 592 190 574 202 548 202 C 522 202 504 190 504 175 C 504 160 522 148 548 148 Z" fill="url(#kalloTextGrad)"></path>
+    <circle cx="548" cy="175" fill="#22c55e" opacity="0.25" r="12"></circle>
+
+    <!-- MẦM CÂY DINH DƯỠNG -->
+    <g filter="url(#neonSproutGlowClean)" id="o-nutrition-sprout">
+      <path d="M 578 132 C 584 116 596 102 610 94" fill="none" stroke="#22c55e" stroke-linecap="round" stroke-width="5"></path>
+      <path d="M 610 94 C 582 92 576 70 596 62 C 614 55 620 76 610 94 Z" fill="url(#sproutGradClean)"></path>
+      <path d="M 610 94 C 626 74 648 78 644 96 C 640 110 622 108 610 94 Z" fill="url(#leafGradDarkClean)"></path>
+      <path d="M 598 72 C 604 78 609 88 610 94" fill="none" opacity="0.75" stroke="#ffffff" stroke-linecap="round" stroke-width="1.5"></path>
+    </g>
+
+    <!-- CHẤM TRÒN NĂNG LƯỢNG NEON -->
+    <g class="energy-dot-anim" filter="url(#neonSproutGlowClean)" id="kallo-energy-dot">
+      <circle cx="638" cy="168" fill="url(#sproutGradClean)" r="11"></circle>
+      <circle cx="635" cy="165" fill="#ffffff" opacity="0.9" r="3.5"></circle>
+    </g>
+  </g>
+</g>
+
+<!-- Splash Screen Loading Pill Bar Below Logo -->
+<g transform="translate(216, 536)">
+  <rect fill="#111c24" height="7" rx="3.5" stroke="#16a34a" stroke-opacity="0.4" stroke-width="1.2" width="168" x="0" y="0"></rect>
+  <rect class="loader-progress" fill="url(#pulseBarGrad)" filter="url(#softGlowSplash)" height="7" rx="3.5" width="120" x="0" y="0"></rect>
+</g>
+</svg></div><!-- STITCH_SVG_END:ANIMATION_SPLASH -->
+<script>
+  document.querySelector(".loader-progress").addEventListener("animationend", () => {
+    window.ReactNativeWebView?.postMessage("splashComplete");
+    window.parent.postMessage("splashComplete", "*");
+  }, { once: true });
+</script>
+</body></html>
